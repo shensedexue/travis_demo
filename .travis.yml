@@ -1,9 +1,8 @@
 language: node_js
 node_js:
 - '8'
-before_install:
-- openssl aes-256-cbc -K $encrypted_df532db05eac_key -iv $encrypted_df532db05eac_iv
-  -in id_rsa.enc -out id_rsa -d
-script: true
-
-
+env:
+  global:
+    secure: ENG1mDpBULl46DQA2nMgWvroaPHDa4frQ4p56tMII1ZE1lav1ww6Djx23z1cGfCQ3W3Q6MlPmn+5CkwGEUSHANB5wKwZcJ+5nGEGRZOmqXm5q4OkF+GdGTSQw6w91HDIDQdCoggakKpgTcwTk55PniP8D5+2TyoZGb2CjoQhLb+29LFD/Bg3IJ6fWQqaRXVuqw2DJhwK7fhiAYn7QTG/oC1Lip1IBmthbyESL7cOR8TUfSRwbWJ9qalK9tBfnur567tkhtaMewxB22vKbttCF9vFapzi+ZnY/kqK2C0e92I6XkerOFrdkVwrWPFMCUHre9+kmVCZOZ5gQlfB66OgduDL1/8eRUWGleMB4KWM9DacdmVtPKOVVfihAfNR2WKuEIdbGYLogbsEDfKwMZpKzgQ/nyTma6CbdRr3awUldvBwmyQpQkStW7X0LCPRUopivKiFjovL+h4YWcK8qFmXRJDXilSv9SaKsKy4aveURY07G4gfprU5ygsI9RCHMKc/LdeoMXaI0mE+PnevTLVzV4d2tEVg1aY2lXUp7RpXqQKWRYQkEZloSx103mwqqLWRO1IX0f21LfpiQey5Gm5YtTlQorZkITL7/o7ifslJ+4kmFHJquRcsHkCRwni0G91xyVikuviZSaUMQSRY+HLqViM80y3JwyY0rNdan4Qe3i4=
+before_script:
+- sed -i'' "s~git@github.com:shensedexue/travis_demo.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/shensedexue/travis_demo.git~" _config.yml
