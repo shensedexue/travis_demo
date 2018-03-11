@@ -8,6 +8,6 @@ before_install:
 -chmod 600 ~/.ssh/id_rsa
 -echo -e "Host 47.97.179.191\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 -chmode 600  ~/.ssh/config
-after_success:
--scp travis_demo root@47.97.179.191:/home/travistest
+after_script:
+-scp -o server.js root@47.97.179.191:/home/travistest
 
